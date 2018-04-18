@@ -1,4 +1,4 @@
-package cl.octavionancul.stressless;
+package cl.octavionancul.stressless.views.main;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import cl.octavionancul.stressless.R;
 import cl.octavionancul.stressless.models.Pending;
 
 public class MainActivity extends AppCompatActivity {

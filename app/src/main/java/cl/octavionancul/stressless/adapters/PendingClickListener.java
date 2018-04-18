@@ -1,4 +1,4 @@
-package cl.octavionancul.stressless;
+package cl.octavionancul.stressless.adapters;
 
 public interface PendingClickListener {
 

@@ -10,10 +10,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import cl.octavionancul.stressless.PendingClickListener;
 import cl.octavionancul.stressless.R;
 import cl.octavionancul.stressless.data.Queries;
 import cl.octavionancul.stressless.models.Pending;
@@ -44,10 +42,12 @@ public class PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final Pending pending = pendings.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder,int position) {
+
+        Pending pending = pendings.get(position);
         holder.textView.setText(pending.getName());
         holder.checkBox.setChecked(pending.isDone());
+
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -78,6 +78,7 @@ public class PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewH
 
                 Pending auxPending = pendings.get(holder.getAdapterPosition());
                 listener.clickedID(auxPending.getId());
+
             }
         });
 
