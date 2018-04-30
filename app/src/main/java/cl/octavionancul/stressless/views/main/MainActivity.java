@@ -77,4 +77,9 @@ public class MainActivity extends AppCompatActivity implements SearchListener {
         pendingsFragment.updateListNames(name);
       //  Toast.makeText(this, "a", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void listAll() {
+        pendingsFragment.updateListAll();
+    }
 }

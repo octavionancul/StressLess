@@ -101,6 +101,13 @@ public class    PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.Vi
     notifyDataSetChanged();
     }
 
+    public void updateListAll(){
+        List<Pending> pendingsList = new Queries().pendings();
+        pendings.clear();
+        pendings.addAll(pendingsList);
+        notifyDataSetChanged();
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private CheckBox checkBox;

@@ -72,11 +72,16 @@ public class PendingsFragment extends Fragment implements PendingClickListener {
         adapter.update(pending);
 
         Log.d("save", pending.getName());
-
     }
+
 
     public void updateListNames(String name){
         adapter.updateByName(name);
+    }
+
+    public void updateListAll(){
+        adapter.updateListAll();
+     //   Toast.makeText(getContext(), "listallpendingfragment", Toast.LENGTH_SHORT).show();
     }
 
     @Override
