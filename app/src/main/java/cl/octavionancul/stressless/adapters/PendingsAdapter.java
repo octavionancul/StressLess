@@ -16,11 +16,9 @@ import cl.octavionancul.stressless.R;
 import cl.octavionancul.stressless.data.Queries;
 import cl.octavionancul.stressless.models.Pending;
 
-public class PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewHolder> {
+public class    PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewHolder> {
 
-
-
-    private List<Pending> pendings = new Queries().pendings();
+   private List<Pending> pendings = new Queries().pendings();
    private PendingClickListener listener ;
 
     public PendingsAdapter(PendingClickListener listener) {
@@ -48,7 +46,7 @@ public class PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewH
         holder.textView.setText(pending.getName());
         holder.checkBox.setChecked(pending.isDone());
 
-
+        //Check utilzado para eliminar el item de la lista al seleccionar
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -72,6 +70,7 @@ public class PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewH
             }
         });
 
+        //Al hacer click en el textview
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +92,13 @@ public class PendingsAdapter extends  RecyclerView.Adapter<PendingsAdapter.ViewH
     public void update(Pending pending){
         pendings.add(pending);
         notifyDataSetChanged();
+    }
 
+    public void updateByName(String name){
+    List<Pending> byName = new Queries().findByName(name);
+    pendings.clear();
+    pendings.addAll(byName);
+    notifyDataSetChanged();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

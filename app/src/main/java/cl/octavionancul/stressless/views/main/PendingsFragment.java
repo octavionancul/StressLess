@@ -18,6 +18,7 @@ import cl.octavionancul.stressless.adapters.PendingClickListener;
 import cl.octavionancul.stressless.adapters.PendingsAdapter;
 import cl.octavionancul.stressless.models.Pending;
 import cl.octavionancul.stressless.views.details.DetailsActivity;
+import cl.octavionancul.stressless.views.main.search.SearchFragment;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -65,13 +66,17 @@ public class PendingsFragment extends Fragment implements PendingClickListener {
 
         recyclerView.setAdapter(adapter);
 
-
     }
 
     public void updateList(Pending pending) {
         adapter.update(pending);
+
         Log.d("save", pending.getName());
 
+    }
+
+    public void updateListNames(String name){
+        adapter.updateByName(name);
     }
 
     @Override
